@@ -8,8 +8,8 @@
     <header>
         <h1>Task List Manager</h1>
     </header>
-
     <main>
+        <p><?php print_r($task_list); ?></p>
         
         <!-- part 1: the errors -->
         <?php if (count($errors) > 0) : ?>
@@ -30,7 +30,7 @@
             <?php foreach( $task_list as $id => $task ) : ?>
                 <li><?php echo $id + 1 . '. ' . $task; ?></li>
             <?php endforeach; ?>
-            </ul>           
+            </ul>
         <?php endif; ?>
         <br>
 
@@ -38,7 +38,8 @@
         <h2>Add Task:</h2>
         <form action="." method="post" >
             <?php foreach( $task_list as $task ) : ?>
-              <input type="hidden" name="tasklist[]" value="<?php echo $task; ?>">
+              <input type="hidden" name="tasklist[]" 
+                     value="<?php echo $task; ?>">
             <?php endforeach; ?>
             <label>Task:</label>
             <input type="text" name="newtask" id="newtask"> <br>
@@ -52,7 +53,8 @@
         <h2>Select Task:</h2>
         <form action="." method="post" >
             <?php foreach( $task_list as $task ) : ?>
-              <input type="hidden" name="tasklist[]" value="<?php echo $task; ?>">
+              <input type="hidden" name="tasklist[]" 
+                     value="<?php echo $task; ?>">
             <?php endforeach; ?>
             <label>Task:</label>
             <select name="taskid">
@@ -74,7 +76,7 @@
         </form>
         <?php endif; ?>
 
-        <!-- part 5: the modify save/cancel form -->
+        <!-- part 5: the modify form -->
         <?php if (!empty($task_to_modify)) : ?>
         <h2>Task to Modify:</h2>
         <form action="." method="post" >
