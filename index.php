@@ -55,7 +55,8 @@ switch( $action ) {
             $modified_task = '';
         }
         break;
-    case 'Cancel Changes':
+    
+     case 'Cancel Changes':               
         $modified_task = '';
         break;
     case 'Promote Task':
